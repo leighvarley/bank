@@ -9,7 +9,7 @@ var userCheckingInput = function() {
   return ckAmount;
 }
 
-//CHECKING DEPOSIT
+//Checking deposit
 
 //Add new deposit to current balance and display it in the container.
 var checkingDeposit = function(){
@@ -19,4 +19,15 @@ var checkingDeposit = function(){
  }
 
 //Call the checking deposit function when the checking deposit button is clicked.
-document.getElementById("ckDepositButton").addEventListener("click", checkingDeposit)
+document.getElementById("ckDepositButton").addEventListener("click", checkingDeposit);
+
+
+//Checking Withdrawl
+
+var checkingWithdrawal = function(){
+  checkingBalance -= userCheckingInput();
+  var ckBalanceContainer = document.getElementById("ckBalanceContainer");
+  ckBalanceContainer.innerHTML = "$" + checkingBalance;
+}
+
+document.getElementById("ckWithdrawalButton").addEventListener("click", checkingWithdrawal);
