@@ -2,9 +2,10 @@
 
 var checkingBalance = 0;
 
-//Grab user input for the checking account
+//Grab user input for the checking account.
 var userCheckingInput = function() {
   var ckAmount = parseInt(document.getElementById("ckInput").value);
+  document.getElementById("ckInput").value="";
   return ckAmount;
 }
 
