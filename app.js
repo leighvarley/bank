@@ -1,12 +1,14 @@
 (function(){
-
-  //CHECKING ACCOUNT
-
   var checkingBalance = 0;
+  var savingsBalance = 0;
+  var ckBalanceContainer = document.getElementById("ckBalanceContainer");
+  var svBalanceContainer = document.getElementById("svBalanceContainer");
+  var checkingAmount = document.getElementById("ckInput");
+  var savingsAmount = document.getElementById("svInput");
 
   //Grab user input for the checking account.
   var userCheckingInput = function() {
-    var ckAmount = parseInt(document.getElementById("ckInput").value);
+    var ckAmount = parseInt((checkingAmount).value);
     document.getElementById("ckInput").value="";
     return ckAmount;
   }
@@ -16,7 +18,6 @@
   //Add new deposit to current balance and display it in the container.
   var checkingDeposit = function(){
     checkingBalance += userCheckingInput();
-    var ckBalanceContainer = document.getElementById("ckBalanceContainer");
     ckBalanceContainer.innerHTML = "$" + checkingBalance;
    }
 
@@ -27,7 +28,6 @@
 
   var checkingWithdrawal = function(){
     checkingBalance -= userCheckingInput();
-    var ckBalanceContainer = document.getElementById("ckBalanceContainer");
     ckBalanceContainer.innerHTML = "$" + checkingBalance;
   }
 
@@ -36,11 +36,9 @@
 
   //SAVINGS ACCOUNT
 
-  var savingsBalance = 0;
-
   //Grab user input for the savings account.
   var userSavingsInput = function(){
-    var svAmount = parseInt(document.getElementById("svInput").value);
+    var svAmount = parseInt((savingsAmount).value);
     document.getElementById("svInput").value = "";
     return svAmount;
   }
@@ -48,7 +46,6 @@
   //Add new deposit to balance and save in the container.
   var savingsDeposit = function(){
     savingsBalance += userSavingsInput();
-    var svBalanceContainer = document.getElementById("svBalanceContainer");
     svBalanceContainer.innerHTML = "$" + savingsBalance;
   }
 
@@ -58,7 +55,6 @@
   //Subtract withdrawal from savings account and save balance in the container
   var savingsWithdrawal = function(){
     savingsBalance -= userSavingsInput();
-    var svBalanceContainer = document.getElementById("svBalanceContainer");
     svBalanceContainer.innerHTML = "$" + savingsBalance;
   }
 
