@@ -1,0 +1,35 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <title>Bank</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Welcome to the bank</h1>
+
+    <!-- Checking Account -->
+    <div class="account">
+      <h2>Checking Account</h2>
+      <div class="checkingBalance"></div>
+      <form>
+        <input type="text" id="checkingInput" placeholder="How much?" />
+        <input type="button" id="checkingDeposit" value="Deposit" />
+        <input type="button" id="checkingWithdraw" value="Withdraw" />
+      </form>
+    </div>
+
+    <!-- Savings Account -->
+    <div class="account">
+      <h2>Savings Account</h2>
+      <div class="savingsBalance"></div>
+      <form>
+        <input type="text" id="savingsInput" placeholder="How much?">
+        <input type="button" id="savingsDeposit" value="Deposit" />
+        <input type="button" id="savingsWithdraw" value="Withdraw" />
+      </form>
+    </div>
+
+  <script src="app.js"></script>
+  </body>
+</html>
