@@ -1,64 +1,68 @@
-//CHECKING ACCOUNT
+(function(){
 
-var checkingBalance = 0;
+  //CHECKING ACCOUNT
 
-//Grab user input for the checking account.
-var userCheckingInput = function() {
-  var ckAmount = parseInt(document.getElementById("ckInput").value);
-  document.getElementById("ckInput").value="";
-  return ckAmount;
-}
+  var checkingBalance = 0;
 
-//Checking deposit
+  //Grab user input for the checking account.
+  var userCheckingInput = function() {
+    var ckAmount = parseInt(document.getElementById("ckInput").value);
+    document.getElementById("ckInput").value="";
+    return ckAmount;
+  }
 
-//Add new deposit to current balance and display it in the container.
-var checkingDeposit = function(){
-  checkingBalance += userCheckingInput();
-  var ckBalanceContainer = document.getElementById("ckBalanceContainer");
-  ckBalanceContainer.innerHTML = "$" + checkingBalance;
- }
+  //Checking deposit
 
-//Call the checking deposit function when the checking deposit button is clicked.
-document.getElementById("ckDepositButton").addEventListener("click", checkingDeposit);
+  //Add new deposit to current balance and display it in the container.
+  var checkingDeposit = function(){
+    checkingBalance += userCheckingInput();
+    var ckBalanceContainer = document.getElementById("ckBalanceContainer");
+    ckBalanceContainer.innerHTML = "$" + checkingBalance;
+   }
 
-//Checking Withdrawal
+  //Call the checking deposit function when the checking deposit button is clicked.
+  document.getElementById("ckDepositButton").addEventListener("click", checkingDeposit);
 
-var checkingWithdrawal = function(){
-  checkingBalance -= userCheckingInput();
-  var ckBalanceContainer = document.getElementById("ckBalanceContainer");
-  ckBalanceContainer.innerHTML = "$" + checkingBalance;
-}
+  //Checking Withdrawal
 
-//Call the checking withdrawal function when the checking withdrawal button is clicked.
-document.getElementById("ckWithdrawalButton").addEventListener("click", checkingWithdrawal);
+  var checkingWithdrawal = function(){
+    checkingBalance -= userCheckingInput();
+    var ckBalanceContainer = document.getElementById("ckBalanceContainer");
+    ckBalanceContainer.innerHTML = "$" + checkingBalance;
+  }
 
-//SAVINGS ACCOUNT
+  //Call the checking withdrawal function when the checking withdrawal button is clicked.
+  document.getElementById("ckWithdrawalButton").addEventListener("click", checkingWithdrawal);
 
-var savingsBalance = 0;
+  //SAVINGS ACCOUNT
 
-//Grab user input for the savings account.
-var userSavingsInput = function(){
-  var svAmount = parseInt(document.getElementById("svInput").value);
-  document.getElementById("svInput").value = "";
-  return svAmount;
-}
+  var savingsBalance = 0;
 
-//Add new deposit to balance and save in the container.
-var savingsDeposit = function(){
-  savingsBalance += userSavingsInput();
-  var svBalanceContainer = document.getElementById("svBalanceContainer");
-  svBalanceContainer.innerHTML = "$" + savingsBalance;
-}
+  //Grab user input for the savings account.
+  var userSavingsInput = function(){
+    var svAmount = parseInt(document.getElementById("svInput").value);
+    document.getElementById("svInput").value = "";
+    return svAmount;
+  }
 
-//Call the savings deposit function when the savings deposit button is clicked
-document.getElementById("svDepositButton").addEventListener("click", savingsDeposit);
+  //Add new deposit to balance and save in the container.
+  var savingsDeposit = function(){
+    savingsBalance += userSavingsInput();
+    var svBalanceContainer = document.getElementById("svBalanceContainer");
+    svBalanceContainer.innerHTML = "$" + savingsBalance;
+  }
 
-//Subtract withdrawal from savings account and save balance in the container
-var savingsWithdrawal = function(){
-  savingsBalance -= userSavingsInput();
-  var svBalanceContainer = document.getElementById("svBalanceContainer");
-  svBalanceContainer.innerHTML = "$" + savingsBalance;
-}
+  //Call the savings deposit function when the savings deposit button is clicked
+  document.getElementById("svDepositButton").addEventListener("click", savingsDeposit);
 
-//Call the savings withdrawal function when the savings withdrawal button is clicked
-document.getElementById("svWithdrawalButton").addEventListener("click", savingsWithdrawal);
+  //Subtract withdrawal from savings account and save balance in the container
+  var savingsWithdrawal = function(){
+    savingsBalance -= userSavingsInput();
+    var svBalanceContainer = document.getElementById("svBalanceContainer");
+    svBalanceContainer.innerHTML = "$" + savingsBalance;
+  }
+
+  //Call the savings withdrawal function when the savings withdrawal button is clicked
+  document.getElementById("svWithdrawalButton").addEventListener("click", savingsWithdrawal);
+
+}());
