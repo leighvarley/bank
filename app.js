@@ -3,13 +3,14 @@
   var savingsBalance = 0;
   var ckBalanceContainer = document.getElementById("ckBalanceContainer");
   var svBalanceContainer = document.getElementById("svBalanceContainer");
+  var ckErrorContainer = document.getElementById("ckError");
+  var svErrorContainer = document.getElementById("svError");
   var checkingAmount = document.getElementById("ckInput");
   var savingsAmount = document.getElementById("svInput");
 
-
 //CHECKING ACCOUNT
 
-  //Save user input.
+  // Save user input.
   var userCheckingInput = function() {
     var ckAmount = parseInt((checkingAmount).value);
     document.getElementById("ckInput").value="";
@@ -20,15 +21,17 @@
   var checkingDeposit = function(){
     checkingBalance += userCheckingInput();
     ckBalanceContainer.innerHTML = "$" + checkingBalance;
-   }
+  }
 
+  //Subtract withdrawal if funds are sufficient and display updated balance in the container.
   var checkingWithdrawal = function(){
-    if(checkingBalance >= userCheckingInput()){
-      checkingBalance -= userCheckingInput();
-      ckBalanceContainer.innerHTML = "$" + checkingBalance;
+    var ckAmount = parseInt((checkingAmount).value);
+    if(checkingBalance >= ckAmount){
+        checkingBalance -= ckAmount;
+        ckBalanceContainer.innerHTML = "$" + checkingBalance;
     }
     else {
-      ckBalanceContainer.innerHTML = "Insufficient Funds! You only have $ " + checkingBalance + " in your account.";
+      var answer = confirm("Insufficient funds");
     }
   }
 
@@ -48,12 +51,13 @@
   }
 
   var savingsWithdrawal = function(){
-    if(savingsBalance >= userSavingsInput()){
-      savingsBalance -= userSavingsInput();
+    var svAmount = parseInt((savingsAmount).value);
+    if(savingsBalance >= svAmount){
+      savingsBalance -= svAmount;
       svBalanceContainer.innerHTML = "$" + savingsBalance;
     }
     else {
-      svBalanceContainer.innerHTML = "Insufficient Funds! You only have $ " + savingsBalance + " in your account.";
+      var answer = confirm("Insufficient funds");
     }
   }
 

@@ -13,8 +13,9 @@
       <div class="account">
         <h2>Checking Account</h2>
         <div class="container" id="ckBalanceContainer">
-          <p>$0</p>
+          <h2>$0</h2>
         </div>
+        <div id="ckError"></div>
         <input type="text" id="ckInput" autofocus placeholder="How much?" />
         <input type="button" id="ckDepositButton" value="Deposit" />
         <input type="button" id="ckWithdrawalButton" value="Withdrawal" />
@@ -24,16 +25,16 @@
       <div class="account">
         <h2>Savings Account</h2>
         <div class="container" id="svBalanceContainer">
-            <p>$0</p>
+            <h2>$0</h2>
         </div>
-        <form>
-          <input type="text" id="svInput" placeholder="How much?">
-          <input type="button" id="svDepositButton" value="Deposit" />
-          <input type="button" id="svWithdrawalButton" value="Withdrawal" />
-        </form>
+        <div id="svError"></div>
+        <input type="text" id="svInput" placeholder="How much?">
+        <input type="button" id="svDepositButton" value="Deposit" />
+        <input type="button" id="svWithdrawalButton" value="Withdrawal" />
       </div>
     </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="app.js"></script>
   </body>
 </html>
