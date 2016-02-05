@@ -6,26 +6,32 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Welcome to the bank</h1>
+    <div id="bank">
+      <h1>Welcome to the bank of JS</h1>
 
-    <!-- Checking Account -->
-    <div class="account">
-      <h2>Checking Account</h2>
-      <div id="ckBalanceContainer"></div>
-      <input type="text" id="ckInput" placeholder="How much?" />
-      <input type="button" id="ckDepositButton" value="Deposit" />
-      <input type="button" id="ckWithdrawalButton" value="Withdrawal" />
-    </div>
+      <!-- Checking Account -->
+      <div class="account">
+        <h2>Checking Account</h2>
+        <div class="container" id="ckBalanceContainer">
+          <p>$0</p>
+        </div>
+        <input type="text" id="ckInput" autofocus placeholder="How much?" />
+        <input type="button" id="ckDepositButton" value="Deposit" />
+        <input type="button" id="ckWithdrawalButton" value="Withdrawal" />
+      </div>
 
-    <!-- Savings Account -->
-    <div class="account">
-      <h2>Savings Account</h2>
-      <div id="svBalanceContainer"></div>
-      <form>
-        <input type="text" id="svInput" placeholder="How much?">
-        <input type="button" id="svDepositButton" value="Deposit" />
-        <input type="button" id="svWithdrawalButton" value="Withdrawal" />
-      </form>
+      <!-- Savings Account -->
+      <div class="account">
+        <h2>Savings Account</h2>
+        <div class="container" id="svBalanceContainer">
+            <p>$0</p>
+        </div>
+        <form>
+          <input type="text" id="svInput" placeholder="How much?">
+          <input type="button" id="svDepositButton" value="Deposit" />
+          <input type="button" id="svWithdrawalButton" value="Withdrawal" />
+        </form>
+      </div>
     </div>
 
   <script src="app.js"></script>

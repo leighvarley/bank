@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Neuton:300);
+
+body{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 5em;
+  font-family: 'Montserrat', sans-serif;
+  color: #484848;
+  font-size: 2em;
+  text-align: center;
+  padding: 1em 0 1em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
+  color: #303E4E;
+}
+
+p {
+  font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
+  color: #303E4E;
+}
+
+input[type="text"] {
+  font-family: 'Neuton', serif;
+  font-size: 1em;
+  padding: 0.2em;
+  display: block;
+  margin: 0 auto;
+}
+
+input[type="button"] {
+  font-family: 'Neuton', serif;
+  font-size: 1em;
+  color: #FFF;
+  padding: 0.4em;
+  margin: 0.5em 0 0 0;
+  background-color: #4479BA;
+  border: 0;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+input[type="button"]:hover, input[type="button"]:focus {
+    background: #356094;
+    border: solid 1px #2A4E77;
+}
+
+#bank{
+  border: 0.2em solid #303E4E;
+  width: 60%;
+  margin: 10em;
+  background-color: #BDCEDE;
+  margin: 0 auto;
+  margin-top: 2em;
+  padding: 1em;
+}
+
+.account{
+  border: 0.3em solid #D22F2F;
+  padding: 5%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  width: 70%;
+  background-color: #EBEAEC;
+  display: block;
+  text-align: center;
+}
