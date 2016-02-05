@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="bank">
-      <h1>JavaScript Bank</h1>
+      <h1>Bank.js</h1>
 
       <!-- Checking Account -->
       <div class="account">
@@ -15,7 +15,9 @@
         <div class="container" id="ckBalanceContainer">
           <h2>$0</h2>
         </div>
-        <div id="ckError"></div>
+        <div class="error" id="ckError">
+          <p>Insufficient Funds</p>
+        </div>
         <input type="text" id="ckInput" autofocus placeholder="How much?" />
         <input type="button" id="ckDepositButton" value="Deposit" />
         <input type="button" id="ckWithdrawalButton" value="Withdrawal" />
@@ -27,7 +29,9 @@
         <div class="container" id="svBalanceContainer">
             <h2>$0</h2>
         </div>
-        <div id="svError"></div>
+        <div class="error" id="svError">
+          <p>Insufficient Funds</p>
+        </div>
         <input type="text" id="svInput" placeholder="How much?">
         <input type="button" id="svDepositButton" value="Deposit" />
         <input type="button" id="svWithdrawalButton" value="Withdrawal" />

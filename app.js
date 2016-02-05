@@ -1,10 +1,9 @@
 (function(){
+  $(".error").hide()
   var checkingBalance = 0;
   var savingsBalance = 0;
   var ckBalanceContainer = document.getElementById("ckBalanceContainer");
   var svBalanceContainer = document.getElementById("svBalanceContainer");
-  var ckErrorContainer = document.getElementById("ckError");
-  var svErrorContainer = document.getElementById("svError");
   var checkingAmount = document.getElementById("ckInput");
   var savingsAmount = document.getElementById("svInput");
 
@@ -32,9 +31,10 @@
         ckBalanceContainer.innerHTML = "$" + checkingBalance;
     }
     else {
-      var answer = confirm("Insufficient funds");
-      // ckErrorContainer.innerHTML = "Insufficient Funds!";
-      // return false;
+      $("#ckError").show();
+      setTimeout(function() {
+        $("#ckError").hide();
+      }, 1000);
     }
   }
 
@@ -61,7 +61,10 @@
       svBalanceContainer.innerHTML = "$" + savingsBalance;
     }
     else {
-      var answer = confirm("Insufficient funds");
+      $("#svError").show();
+      setTimeout(function() {
+        $("#svError").hide();
+      }, 1000);
     }
   }
 

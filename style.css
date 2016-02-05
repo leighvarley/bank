@@ -71,3 +71,7 @@ input[type="button"]:hover, input[type="button"]:focus {
   display: block;
   text-align: center;
 }
+
+.error p{
+  color: #D22F2F;
+}
