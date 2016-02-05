@@ -26,12 +26,15 @@
   //Subtract withdrawal if funds are sufficient and display updated balance in the container.
   var checkingWithdrawal = function(){
     var ckAmount = parseInt((checkingAmount).value);
+    document.getElementById("ckInput").value="";
     if(checkingBalance >= ckAmount){
         checkingBalance -= ckAmount;
         ckBalanceContainer.innerHTML = "$" + checkingBalance;
     }
     else {
       var answer = confirm("Insufficient funds");
+      // ckErrorContainer.innerHTML = "Insufficient Funds!";
+      // return false;
     }
   }
 
@@ -52,6 +55,7 @@
 
   var savingsWithdrawal = function(){
     var svAmount = parseInt((savingsAmount).value);
+    document.getElementById("svInput").value = "";
     if(savingsBalance >= svAmount){
       savingsBalance -= svAmount;
       svBalanceContainer.innerHTML = "$" + savingsBalance;
