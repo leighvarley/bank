@@ -3,27 +3,28 @@
 body{
   width: 100%;
   box-sizing: border-box;
+  background-color: #F2F2F2;
 }
 
 h1 {
   font-size: 5em;
   font-family: 'Montserrat', sans-serif;
-  color: #484848;
+  color: #2E3943;
   font-size: 2em;
   text-align: center;
   padding: 1em 0 1em 0;
 }
 
-h2 {
+.container, h2 {
   font-size: 1.5em;
   font-family: 'Montserrat', sans-serif;
-  color: #303E4E;
+  color: #2E3943;
 }
 
 p {
   font-size: 1.5em;
   font-family: 'Montserrat', sans-serif;
-  color: #303E4E;
+  color: #2E3943;
 }
 
 input[type="text"] {
@@ -52,22 +53,22 @@ input[type="button"]:hover, input[type="button"]:focus {
 }
 
 #bank{
-  border: 0.2em solid #303E4E;
+  border: 0.2em solid #00BEFF;
   width: 60%;
   margin: 10em;
-  background-color: #BDCEDE;
+  background-color: #16E3B3;
   margin: 0 auto;
   margin-top: 2em;
   padding: 1em;
 }
 
 .account{
-  border: 0.3em solid #D22F2F;
+  border: 0.3em solid #00BEFF;
   padding: 5%;
   margin: 0 auto;
   margin-bottom: 2em;
   width: 70%;
-  background-color: #EBEAEC;
+  background-color: #F2F2F2;
   display: block;
   text-align: center;
 }

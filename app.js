@@ -22,7 +22,7 @@
     ckBalanceContainer.innerHTML = "$" + checkingBalance;
   }
 
-  //Subtract withdrawal if funds are sufficient and display updated balance in the container.
+  //Subtract withdrawal if there are sufficient funds.
   var checkingWithdrawal = function(){
     var ckAmount = parseInt((checkingAmount).value);
     document.getElementById("ckInput").value="";
@@ -53,6 +53,7 @@
     svBalanceContainer.innerHTML = "$" + savingsBalance;
   }
 
+  //Subtract withdrawal if there are sufficient funds.
   var savingsWithdrawal = function(){
     var svAmount = parseInt((savingsAmount).value);
     document.getElementById("svInput").value = "";
