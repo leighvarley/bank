@@ -22,10 +22,14 @@
     ckBalanceContainer.innerHTML = "$" + checkingBalance;
    }
 
-  //Subtract withdrawal and display updated balance in the container.
   var checkingWithdrawal = function(){
-    checkingBalance -= userCheckingInput();
-    ckBalanceContainer.innerHTML = "$" + checkingBalance;
+    if(checkingBalance >= userCheckingInput()){
+      checkingBalance -= userCheckingInput();
+      ckBalanceContainer.innerHTML = "$" + checkingBalance;
+    }
+    else {
+      ckBalanceContainer.innerHTML = "Insufficient Funds! You only have $ " + checkingBalance + " in your account.";
+    }
   }
 
 //SAVINGS ACCOUNT
@@ -43,10 +47,14 @@
     svBalanceContainer.innerHTML = "$" + savingsBalance;
   }
 
-  //Subtract withdrawal and display updated balance in the container.
   var savingsWithdrawal = function(){
-    savingsBalance -= userSavingsInput();
-    svBalanceContainer.innerHTML = "$" + savingsBalance;
+    if(savingsBalance >= userSavingsInput()){
+      savingsBalance -= userSavingsInput();
+      svBalanceContainer.innerHTML = "$" + savingsBalance;
+    }
+    else {
+      svBalanceContainer.innerHTML = "Insufficient Funds! You only have $ " + savingsBalance + " in your account.";
+    }
   }
 
   //Call function when respective button is clicked.
