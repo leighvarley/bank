@@ -1,10 +1,35 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat|Neuton:300);
 
-body{
+/*Page Structure*/
+
+body {
   width: 100%;
   box-sizing: border-box;
   background-color: #F2F2F2;
 }
+
+#bank {
+  border: 0.2em solid #00BEFF;
+  width: 60%;
+  margin: 10em;
+  background-color: #16E3B3;
+  margin: 0 auto;
+  margin-top: 2em;
+  padding: 1em;
+}
+
+.account {
+  border: 0.3em solid #00BEFF;
+  padding: 5%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  width: 70%;
+  background-color: #F2F2F2;
+  display: block;
+  text-align: center;
+}
+
+/*Typography*/
 
 h1 {
   font-size: 5em;
@@ -15,7 +40,7 @@ h1 {
   padding: 1em 0 1em 0;
 }
 
-.container, h2 {
+h2 {
   font-size: 1.5em;
   font-family: 'Montserrat', sans-serif;
   color: #2E3943;
@@ -26,6 +51,12 @@ p {
   font-family: 'Montserrat', sans-serif;
   color: #2E3943;
 }
+
+.error p {
+  color: #D22F2F;
+}
+
+/*Input*/
 
 input[type="number"] {
   font-family: 'Neuton', serif;
@@ -49,29 +80,4 @@ input[type="button"] {
 
 input[type="button"]:hover, input[type="button"]:focus {
     background: #356094;
-}
-
-#bank{
-  border: 0.2em solid #00BEFF;
-  width: 60%;
-  margin: 10em;
-  background-color: #16E3B3;
-  margin: 0 auto;
-  margin-top: 2em;
-  padding: 1em;
-}
-
-.account{
-  border: 0.3em solid #00BEFF;
-  padding: 5%;
-  margin: 0 auto;
-  margin-bottom: 2em;
-  width: 70%;
-  background-color: #F2F2F2;
-  display: block;
-  text-align: center;
-}
-
-.error p{
-  color: #D22F2F;
 }

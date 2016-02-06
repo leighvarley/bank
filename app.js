@@ -19,7 +19,7 @@
   //Add deposit and display updated balance in the container.
   var checkingDeposit = function(){
     checkingBalance += userCheckingInput();
-    ckBalanceContainer.innerHTML = "$" + checkingBalance;
+    ckBalanceContainer.innerHTML = "<h2>" + '$' + checkingBalance + "</h2>";
   }
 
   //Subtract withdrawal if there are sufficient funds.
@@ -28,7 +28,7 @@
     document.getElementById("ckInput").value="";
     if(checkingBalance >= ckAmount){
         checkingBalance -= ckAmount;
-        ckBalanceContainer.innerHTML = "$" + checkingBalance;
+        ckBalanceContainer.innerHTML = "<h2>" + '$' + checkingBalance + "</h2>";
     }
     else {
       $("#ckError").show();
@@ -50,7 +50,7 @@
   //Add deposit and display updated balance in the container.
   var savingsDeposit = function(){
     savingsBalance += userSavingsInput();
-    svBalanceContainer.innerHTML = "$" + savingsBalance;
+    svBalanceContainer.innerHTML = "<h2>" + '$' + savingsBalance + "</h2>";
   }
 
   //Subtract withdrawal if there are sufficient funds.
@@ -59,7 +59,7 @@
     document.getElementById("svInput").value = "";
     if(savingsBalance >= svAmount){
       savingsBalance -= svAmount;
-      svBalanceContainer.innerHTML = "$" + savingsBalance;
+      svBalanceContainer.innerHTML = "<h2>" + '$' + savingsBalance + "</h2>";
     }
     else {
       $("#svError").show();
