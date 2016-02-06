@@ -13,7 +13,7 @@
   var userCheckingInput = function() {
     var ckAmount = parseInt((checkingAmount).value);
     document.getElementById("ckInput").value="";
-    return ckAmount;
+      return ckAmount || 0;
   }
 
   //Add deposit and display updated balance in the container.
@@ -44,7 +44,7 @@
   var userSavingsInput = function(){
     var svAmount = parseInt((savingsAmount).value);
     document.getElementById("svInput").value = "";
-    return svAmount;
+    return svAmount || 0;
   }
 
   //Add deposit and display updated balance in the container.
