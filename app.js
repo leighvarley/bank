@@ -37,11 +37,14 @@
           return "<h2>$" + total + "</h2>";
       });
     }
-    else {
+    else if(balance < userInput) {
       $(".error").show();
       setTimeout(function() {
         $(".error").hide();
       }, 1000);
+    }
+    else {
+      return "<h2>$" + balance + "</h2>"
     }
     $(this).siblings("input.userInputAmount").val("");
   }
