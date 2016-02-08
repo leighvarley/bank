@@ -1,11 +1,5 @@
 (function(){
   $(".error").hide()
-  var checkingBalance = 0;
-  var savingsBalance = 0;
-  var ckBalanceContainer = document.getElementById("ckBalanceContainer");
-  var svBalanceContainer = document.getElementById("svBalanceContainer");
-  var checkingAmount = document.getElementById("ckInput");
-  var savingsAmount = document.getElementById("svInput");
 
   //DEPOSIT FUNCTION
   var makeDeposit = function(){
@@ -30,44 +24,32 @@
     $(this).siblings("input.userInputAmount").val("");
   }
 
-  //Deposit event listeners
+  //WITHDRAWAL FUNCTION
+  var makeWithdrawal = function() {
+    var currentBalance = $(this).siblings("div.balance");
+    console.log(currentBalance);
+    var currentBalanceText = currentBalance.text();
+    var balance = parseInt(currentBalanceText.replace("$", ""));
+    var userInput = parseInt($(this).siblings("input.userInputAmount").val());
+    if(balance >= userInput){
+      $(currentBalance).html( function(){
+          var total = balance - (userInput || 0);
+          return "<h2>$" + total + "</h2>";
+      });
+    }
+    else {
+      $(".error").show();
+      setTimeout(function() {
+        $(".error").hide();
+      }, 1000);
+    }
+    $(this).siblings("input.userInputAmount").val("");
+  }
+
+  //EVENT LISTENERS
   document.getElementById("ckDepositButton").addEventListener("click", makeDeposit);
   document.getElementById("svDepositButton").addEventListener("click", makeDeposit);
+  document.getElementById("ckWithdrawalButton").addEventListener("click", makeWithdrawal);
+  document.getElementById("svWithdrawalButton").addEventListener("click", makeWithdrawal);
 
-
-  //Checking Withdrawal
-  var checkingWithdrawal = function(){
-    var ckAmount = parseInt((checkingAmount).value);
-    document.getElementById("ckInput").value="";
-    if(checkingBalance >= ckAmount){
-        checkingBalance -= ckAmount;
-        ckBalanceContainer.innerHTML = "<h2>" + '$' + checkingBalance + "</h2>";
-    }
-    else {
-      $("#ckError").show();
-      setTimeout(function() {
-        $("#ckError").hide();
-      }, 1000);
-    }
-  }
-
-  //Savings Withdrawal
-  var savingsWithdrawal = function(){
-    var svAmount = parseInt((savingsAmount).value);
-    document.getElementById("svInput").value = "";
-    if(savingsBalance >= svAmount){
-      savingsBalance -= svAmount;
-      svBalanceContainer.innerHTML = "<h2>" + '$' + savingsBalance + "</h2>";
-    }
-    else {
-      $("#svError").show();
-      setTimeout(function() {
-        $("#svError").hide();
-      }, 1000);
-    }
-  }
-
-  //withdrawal event listeners
-  document.getElementById("ckWithdrawalButton").addEventListener("click", checkingWithdrawal);
-  document.getElementById("svWithdrawalButton").addEventListener("click", savingsWithdrawal);
 }());
