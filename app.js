@@ -3,25 +3,25 @@ $(document).ready(function(){
 
   //DEPOSIT FUNCTION
   function makeDeposit(){
-    var currentBalance = $(this).siblings("div.balance");
-    var currentBalanceText = currentBalance.text();
-    var balance = parseInt(currentBalanceText.replace("$", ""));
-    var userInput = parseInt($(this).siblings("input.userInputAmount").val());
-    $(currentBalance).html( function(){
+    var balanceDiv = $(this).siblings("div.balance");
+    var balanceText = balanceDiv.text();
+    var balance = parseInt(balanceText.replace("$", ""));
+    var userInput = parseInt($(this).siblings("input.userInput").val());
+    $(balanceDiv).html( function(){
         var total = balance + (userInput || 0);
         return "<h2>$" + total + "</h2>";
     });
-    $(this).siblings("input.userInputAmount").val("");
+    $(this).siblings("input.userInput").val("");
   }
 
   //WITHDRAWAL FUNCTION
   function makeWithdrawal() {
-    var currentBalance = $(this).siblings("div.balance");
-    var currentBalanceText = currentBalance.text();
-    var balance = parseInt(currentBalanceText.replace("$", ""));
-    var userInput = parseInt($(this).siblings("input.userInputAmount").val());
+    var balanceDiv = $(this).siblings("div.balance");
+    var balanceText = balanceDiv.text();
+    var balance = parseInt(balanceText.replace("$", ""));
+    var userInput = parseInt($(this).siblings("input.userInput").val());
     if(balance >= userInput){
-      $(currentBalance).html( function(){
+      $(balanceDiv).html( function(){
           var total = balance - (userInput || 0);
           return "<h2>$" + total + "</h2>";
       });
@@ -35,7 +35,7 @@ $(document).ready(function(){
     else {
       return "<h2>$" + balance + "</h2>"
     }
-    $(this).siblings("input.userInputAmount").val("");
+    $(this).siblings("input.userInput").val("");
   }
 
   //EVENT LISTENERS
