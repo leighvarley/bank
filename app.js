@@ -38,9 +38,9 @@ $(document).ready(function(){
       });
     }
     else if(balance < userInput) {
-      $(".error").show();
+      $(this).siblings("div.error").show();
       setTimeout(function() {
-        $(".error").hide();
+      $(".error").hide();
       }, 1000);
     }
     else {
