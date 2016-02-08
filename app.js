@@ -1,8 +1,8 @@
-(function(){
+$(document).ready(function(){
   $(".error").hide()
 
   //DEPOSIT FUNCTION
-  var makeDeposit = function(){
+  function makeDeposit(){
     //Grab the targeted balance div.
     var currentBalance = $(this).siblings("div.balance");
     console.log(currentBalance);
@@ -25,7 +25,7 @@
   }
 
   //WITHDRAWAL FUNCTION
-  var makeWithdrawal = function() {
+  function makeWithdrawal() {
     var currentBalance = $(this).siblings("div.balance");
     console.log(currentBalance);
     var currentBalanceText = currentBalance.text();
@@ -50,9 +50,9 @@
   }
 
   //EVENT LISTENERS
-  document.getElementById("ckDepositButton").addEventListener("click", makeDeposit);
-  document.getElementById("svDepositButton").addEventListener("click", makeDeposit);
-  document.getElementById("ckWithdrawalButton").addEventListener("click", makeWithdrawal);
-  document.getElementById("svWithdrawalButton").addEventListener("click", makeWithdrawal);
+  $("#ckDepositButton").on("click", makeDeposit);
+  $("#svDepositButton").on("click", makeDeposit);
+  $("#ckWithdrawalButton").on("click", makeWithdrawal);
+  $("#svWithdrawalButton").on("click", makeWithdrawal);
 
 }());
