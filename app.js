@@ -35,23 +35,7 @@
   document.getElementById("svDepositButton").addEventListener("click", makeDeposit);
 
 
-
-//CHECKING ACCOUNT
-
-  // Save user input.
-  // var userCheckingInput = function() {
-  //   var ckAmount = parseInt((checkingAmount).value);
-  //   document.getElementById("ckInput").value="";
-  //     return ckAmount || 0;
-  // }
-
-  // Add deposit and display updated balance in the container.
-  // var checkingDeposit = function(){
-  //   checkingBalance += userCheckingInput();
-  //   ckBalanceContainer.innerHTML = "<h2>" + '$' + checkingBalance + "</h2>";
-  // }
-
-  //Subtract withdrawal if there are sufficient funds.
+  //Checking Withdrawal
   var checkingWithdrawal = function(){
     var ckAmount = parseInt((checkingAmount).value);
     document.getElementById("ckInput").value="";
@@ -67,22 +51,7 @@
     }
   }
 
-//SAVINGS ACCOUNT
-
-  //Save user input.
-  // var userSavingsInput = function(){
-  //   var svAmount = parseInt((savingsAmount).value);
-  //   document.getElementById("svInput").value = "";
-  //   return svAmount || 0;
-  // }
-
-  //Add deposit and display updated balance in the container.
-  // var savingsDeposit = function(){
-  //   savingsBalance += userSavingsInput();
-  //   svBalanceContainer.innerHTML = "<h2>" + '$' + savingsBalance + "</h2>";
-  // }
-
-  //Subtract withdrawal if there are sufficient funds.
+  //Savings Withdrawal
   var savingsWithdrawal = function(){
     var svAmount = parseInt((savingsAmount).value);
     document.getElementById("svInput").value = "";
@@ -98,9 +67,7 @@
     }
   }
 
-  //Call function when respective button is clicked.
-  // document.getElementById("ckDepositButton").addEventListener("click", checkingDeposit);
+  //withdrawal event listeners
   document.getElementById("ckWithdrawalButton").addEventListener("click", checkingWithdrawal);
-  // document.getElementById("svDepositButton").addEventListener("click", savingsDeposit);
   document.getElementById("svWithdrawalButton").addEventListener("click", savingsWithdrawal);
 }());
