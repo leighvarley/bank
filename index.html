@@ -12,30 +12,31 @@
       <!-- Checking Account -->
       <div class="account">
         <h2>Checking Account</h2>
-        <div class="container" id="ckBalanceContainer">
+        <div class="balance" id="ckBalanceContainer">
           <h2>$0</h2>
         </div>
         <div class="error" id="ckError">
           <p>Insufficient Funds</p>
         </div>
-        <input type="number" id="ckInput" autofocus placeholder="How much?" />
-        <input type="button" id="ckDepositButton" value="Deposit" />
+        <input type="number" class="userInputAmount" id="ckInput" autofocus placeholder="How much?" />
+        <input type="button" class="depositButton" id="ckDepositButton" value="Deposit" />
         <input type="button" id="ckWithdrawalButton" value="Withdrawal"  />
       </div>
 
       <!-- Savings Account -->
       <div class="account">
         <h2>Savings Account</h2>
-        <div class="container" id="svBalanceContainer">
+        <div class="balance" id="svBalanceContainer">
             <h2>$0</h2>
         </div>
         <div class="error" id="svError">
           <p>Insufficient Funds</p>
         </div>
-        <input type="number" id="svInput" placeholder="How much?">
-        <input type="button" id="svDepositButton" value="Deposit" />
+        <input type="number" class="userInputAmount" id="svInput" placeholder="How much?">
+        <input type="button" class="depositButton" id="svDepositButton" value="Deposit" />
         <input type="button" id="svWithdrawalButton" value="Withdrawal" />
       </div>
+
     </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
