@@ -36,9 +36,6 @@ $(document).ready(function(){
 
   }
 
-  $("#ckDepositButton").on("click", makeTransaction);
-  $("#svDepositButton").on("click", makeTransaction);
-  $("#ckWithdrawalButton").on("click", makeTransaction);
-  $("#svWithdrawalButton").on("click", makeTransaction);
+  $("[type=button]").on("click", makeTransaction);
 
 }());
