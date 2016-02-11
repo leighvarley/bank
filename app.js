@@ -1,47 +1,50 @@
 $(document).ready(function(){
   $(".error").hide()
 
-  //DEPOSIT FUNCTION
-  function makeDeposit(){
+  function makeTransaction() {
+    console.log($(this));
+    console.log(this);
     var balanceDiv = $(this).siblings("div.balance");
+    console.log(balanceDiv);
     var balanceText = balanceDiv.text();
-    var balance = parseInt(balanceText.replace("$", ""));
+    console.log(balanceText);
+    var startingBalance = parseInt(balanceText.replace("$", ""));
+    console.log("starting balance: " + startingBalance);
     var userInput = parseInt($(this).siblings("input.userInput").val());
-    $(balanceDiv).html( function(){
-        var total = balance + (userInput || 0);
-        return "<h2>$" + total + "</h2>";
-    });
-    $(this).siblings("input.userInput").val("");
-  }
-
-  //WITHDRAWAL FUNCTION
-  function makeWithdrawal() {
-    var balanceDiv = $(this).siblings("div.balance");
-    var balanceText = balanceDiv.text();
-    var balance = parseInt(balanceText.replace("$", ""));
-    var userInput = parseInt($(this).siblings("input.userInput").val());
-    if(balance >= userInput){
-      $(balanceDiv).html( function(){
-          var total = balance - (userInput || 0);
+    console.log("user input: " + userInput);
+    if($(this).hasClass("deposit")){
+      console.log("deposit button");
+      balanceDiv.html(function(){
+          var total = startingBalance + (userInput || 0);
           return "<h2>$" + total + "</h2>";
       });
     }
-    else if(balance < userInput) {
-      $(this).siblings("div.error").show();
-      setTimeout(function() {
-      $(".error").hide();
-      }, 1000);
-    }
     else {
-      return "<h2>$" + balance + "</h2>"
+      console.log("withdrawal button");
+      if(startingBalance >= userInput){
+          balanceDiv.html(function(){
+              var total = startingBalance - (userInput || 0);
+              return "<h2>$" + total + "</h2>";
+          });
+      }
+      else if(startingBalance < userInput) {
+        $(this).siblings("div.error").show();
+        setTimeout(function() {
+        $(".error").hide();
+        }, 1000);
+      }
+      else {
+        return "<h2>$" + startingBalance + "</h2>"
+      }
     }
-    $(this).siblings("input.userInput").val("");
+
+  $(this).siblings("input.userInput").val("");
+
   }
 
-  //EVENT LISTENERS
-  $("#ckDepositButton").on("click", makeDeposit);
-  $("#svDepositButton").on("click", makeDeposit);
-  $("#ckWithdrawalButton").on("click", makeWithdrawal);
-  $("#svWithdrawalButton").on("click", makeWithdrawal);
+  $("#ckDepositButton").on("click", makeTransaction);
+  $("#svDepositButton").on("click", makeTransaction);
+  $("#ckWithdrawalButton").on("click", makeTransaction);
+  $("#svWithdrawalButton").on("click", makeTransaction);
 
 }());
