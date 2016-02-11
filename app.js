@@ -1,26 +1,20 @@
 $(document).ready(function(){
   $(".error").hide()
 
-  function makeTransaction() {
-    console.log($(this));
-    console.log(this);
+  function makeTransaction(){
+
     var balanceDiv = $(this).siblings("div.balance");
-    console.log(balanceDiv);
     var balanceText = balanceDiv.text();
-    console.log(balanceText);
     var startingBalance = parseInt(balanceText.replace("$", ""));
-    console.log("starting balance: " + startingBalance);
     var userInput = parseInt($(this).siblings("input.userInput").val());
-    console.log("user input: " + userInput);
+
     if($(this).hasClass("deposit")){
-      console.log("deposit button");
       balanceDiv.html(function(){
           var total = startingBalance + (userInput || 0);
           return "<h2>$" + total + "</h2>";
       });
     }
     else {
-      console.log("withdrawal button");
       if(startingBalance >= userInput){
           balanceDiv.html(function(){
               var total = startingBalance - (userInput || 0);
