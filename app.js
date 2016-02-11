@@ -9,30 +9,27 @@ $(document).ready(function(){
     var userInput = parseInt($(this).siblings("input.userInput").val());
 
     if($(this).hasClass("deposit")){
-      balanceDiv.html(function(){
-          var total = startingBalance + (userInput || 0);
-          return "<h2>$" + total + "</h2>";
-      });
-    }
-    else {
+      var total = startingBalance + (userInput || 0);
+    } else {
       if(startingBalance >= userInput){
-          balanceDiv.html(function(){
-              var total = startingBalance - (userInput || 0);
-              return "<h2>$" + total + "</h2>";
-          });
-      }
-      else if(startingBalance < userInput) {
+        var total = startingBalance - (userInput || 0);
+      } else if(startingBalance < userInput) {
+        total = startingBalance;
         $(this).siblings("div.error").show();
-        setTimeout(function() {
-        $(".error").hide();
-        }, 1000);
-      }
-      else {
-        return "<h2>$" + startingBalance + "</h2>"
-      }
+          setTimeout(function() {
+          $(".error").hide();
+          }, 1000);
+        }
+        else {
+          total = startingBalance;
+        }
     }
 
-  $(this).siblings("input.userInput").val("");
+    balanceDiv.html(function(){
+      return "<h2>$" + total + "</h2>";
+    });
+
+    $(this).siblings("input.userInput").val("");
 
   }
 
