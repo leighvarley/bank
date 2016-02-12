@@ -10,7 +10,7 @@ body {
 
 #bank {
   border: 0.2em solid #00BEFF;
-  width: 60%;
+  width: 50%;
   margin: 10em;
   background-color: #16E3B3;
   margin: 0 auto;
@@ -29,6 +29,10 @@ body {
   text-align: center;
 }
 
+.balance {
+  margin-top: 2em;
+}
+
 .error {
   height: 2em;
   display: block;
@@ -37,7 +41,7 @@ body {
 /*Typography*/
 
 h1 {
-  font-size: 5em;
+  font-size: 2em;
   font-family: 'Montserrat', sans-serif;
   color: #2E3943;
   font-size: 2em;
@@ -75,8 +79,8 @@ input[type="button"] {
   font-family: 'Neuton', serif;
   font-size: 1em;
   color: #FFF;
-  padding: 0.4em;
-  margin: 0.5em 0 0 0;
+  padding: 0.5em;
+  margin: 1em 0 0 0;
   background-color: #4479BA;
   border: 0;
   border-radius: 4px;
@@ -85,4 +89,11 @@ input[type="button"] {
 
 input[type="button"]:hover, input[type="button"]:focus {
     background: #356094;
+}
+
+/*Media Query*/
+@media screen and (max-width: 500px){
+  #bank {
+    width: 80%;
+  }
 }
