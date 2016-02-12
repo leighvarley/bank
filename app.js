@@ -2,12 +2,14 @@ $(document).ready(function(){
 
   function makeTransaction(){
 
+    //Set up variables.
     var balanceDiv = $(this).siblings("div.balance");
     var balanceText = balanceDiv.text();
     var startingBalance = parseInt(balanceText.replace("$", ""));
     var userInput = parseInt($(this).siblings("input.userInput").val());
     var errorDiv = $(this).siblings("div.error");
 
+    //Update the total.
     if ($(this).hasClass("deposit")) {
       var total = startingBalance + (userInput || 0);
     } else {
@@ -18,20 +20,22 @@ $(document).ready(function(){
         }
     }
 
+    //Show the total on the page.
+    balanceDiv.html("<h2>$" + total + "</h2>");
+
+    //Show an error message if the requested withdrawal exceeds the balance.
     if (($(this).hasClass("withdrawal")) && (userInput > startingBalance)) {
-      errorDiv.html("<p>Insufficient Funds</p>");
+      errorDiv.html("<p>Insufficient Funds!</p>");
     } else {
       errorDiv.html("");
     }
 
-    balanceDiv.html(function() {
-      return "<h2>$" + total + "</h2>";
-    });
-
+    //Clear the user input field.
     $(this).siblings("input.userInput").val("");
 
   }
 
+  //Call the function when a button is clicked.
   $("[type=button]").on("click", makeTransaction);
 
 }());
