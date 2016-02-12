@@ -6,6 +6,7 @@ $(document).ready(function(){
     var balanceText = balanceDiv.text();
     var startingBalance = parseInt(balanceText.replace("$", ""));
     var userInput = parseInt($(this).siblings("input.userInput").val());
+    var errorDiv = $(this).siblings("div.error");
 
     if($(this).hasClass("deposit")){
       var total = startingBalance + (userInput || 0);
@@ -14,18 +15,19 @@ $(document).ready(function(){
         var total = startingBalance - (userInput || 0);
       } else if(startingBalance < userInput) {
         total = startingBalance;
-        console.log("not enough");
         }
         else {
           total = startingBalance;
         }
     }
 
-    if(total < userInput) {
-      $(this).siblings("div.errorContainer").html("<p>Insufficient Funds</p>");
+    if( ($(this).hasClass("withdrawal")) && (userInput > startingBalance) ) {
+      errorDiv.html("<p>Insufficient Funds</p>");
+      console.log("error");
     }
     else {
-      $(this).siblings("div.errorContainer").html("");
+      errorDiv.html("");
+      console.log("ok");
     }
 
     balanceDiv.html(function(){

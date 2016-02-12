@@ -29,7 +29,7 @@ body {
   text-align: center;
 }
 
-.errorContainer {
+.error {
   height: 2em;
   display: block;
 }
@@ -57,7 +57,7 @@ p {
   color: #2E3943;
 }
 
-.errorContainer p {
+.error p {
   color: #D22F2F;
 }
 
