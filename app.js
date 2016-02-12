@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  $(".error").hide()
 
   function makeTransaction(){
 
@@ -15,14 +14,18 @@ $(document).ready(function(){
         var total = startingBalance - (userInput || 0);
       } else if(startingBalance < userInput) {
         total = startingBalance;
-        $(this).siblings("div.error").show();
-          setTimeout(function() {
-          $(".error").hide();
-          }, 1000);
+        console.log("not enough");
         }
         else {
           total = startingBalance;
         }
+    }
+
+    if(total < userInput) {
+      $(this).siblings("div.errorContainer").html("<p>Insufficient Funds</p>");
+    }
+    else {
+      $(this).siblings("div.errorContainer").html("");
     }
 
     balanceDiv.html(function(){

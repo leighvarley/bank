@@ -29,6 +29,11 @@ body {
   text-align: center;
 }
 
+.errorContainer {
+  height: 2em;
+  display: block;
+}
+
 /*Typography*/
 
 h1 {
@@ -47,12 +52,12 @@ h2 {
 }
 
 p {
-  font-size: 1.5em;
+  font-size: 1em;
   font-family: 'Montserrat', sans-serif;
   color: #2E3943;
 }
 
-.error p {
+.errorContainer p {
   color: #D22F2F;
 }
 
@@ -61,7 +66,7 @@ p {
 input[type="number"] {
   font-family: 'Neuton', serif;
   font-size: 1em;
-  padding: 0.2em;
+  padding: 0.5em;
   display: block;
   margin: 0 auto;
 }
