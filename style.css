@@ -30,12 +30,8 @@ body {
 }
 
 .balance {
+  height: 5em;
   margin-top: 2em;
-}
-
-.error {
-  height: 2em;
-  display: block;
 }
 
 /*Typography*/
@@ -58,10 +54,6 @@ h2 {
 p {
   font-size: 1em;
   font-family: 'Montserrat', sans-serif;
-  color: #2E3943;
-}
-
-.error p {
   color: #D22F2F;
 }
 

@@ -9,7 +9,6 @@ $(document).ready(function(){
       var balanceText = balanceDiv.text();
       var startingBalance = parseInt(balanceText.replace("$", ""));
       var userInput = parseInt($(this).siblings("input.userInput").val());
-      var errorDiv = $(this).siblings("div.error");
       //Use self to access makeTransaction's "this" keyword from updateThePage.
       var self = $(this);
 
@@ -28,10 +27,8 @@ $(document).ready(function(){
       var updateThePage = function(){
         balanceDiv.html("<h2>$" + total + "</h2>");
         if ((self.hasClass("withdrawal")) && (userInput > startingBalance)) {
-          errorDiv.html("<p>Insufficient Funds!</p>");
-        } else {
-          errorDiv.html("");
-        };
+          balanceDiv.append("<p>Insufficient Funds!</p>");
+        }
         $("input.userInput").val("");
       };
 
