@@ -34,15 +34,10 @@ $(document).ready(function(){
 
       updateThePage();
 
-    },
-
-    // Call makeTransaction when a button is clicked.
-    listenForClick: function() {
-      $("[type=button]").on("click", bank.makeTransaction)
     }
 
   }
 
-  bank.listenForClick();
+  $("[type=button]").on("click", bank.makeTransaction)
 
 }());
