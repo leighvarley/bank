@@ -6,8 +6,7 @@ $(document).ready(function(){
 
       //Set up variables.
       var balanceDiv = $(this).siblings("div.balance");
-      var balanceText = balanceDiv.text();
-      var startingBalance = parseInt(balanceText.replace("$", ""));
+      var startingBalance = parseInt(balanceDiv.text().replace("$", ""));
       var userInput = parseInt($(this).siblings("input.userInput").val());
       //Use self to access makeTransaction's "this" keyword from updateThePage.
       var self = $(this);
