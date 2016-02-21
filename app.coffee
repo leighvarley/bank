@@ -6,6 +6,7 @@ $ ->
       balanceDiv = $(@).siblings "div.balance"
       startingBalance = parseFloat(balanceDiv.text().replace("$", ""))
       userInput = parseFloat($(@).siblings("input.userInput").val())
+      self = $(@)
 
 # $(document).ready(function(){
 #
