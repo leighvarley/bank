@@ -1,3 +1,6 @@
+$ ->
+  console.log("DOM is ready")
+
 # $(document).ready(function(){
 #
 #   var bank = {
