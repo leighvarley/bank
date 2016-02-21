@@ -1,6 +1,10 @@
 $ ->
   console.log("DOM is ready")
 
+  bank =
+    makeTransaction: ->
+
+
 # $(document).ready(function(){
 #
 #   var bank = {
