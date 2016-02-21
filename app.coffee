@@ -19,7 +19,7 @@ $ ->
 
       updateThePage = ->
         balanceDiv.html "<h2>$" + total.toFixed(2) + "</h2>"
-        if (self.hasClass "withdrawal") && (userInput > startingBalance)
+        if (self.hasClass "withdrawal") and (userInput > startingBalance)
           balanceDiv.append "<p>Insufficient Funds!</p>"
         $("input.userInput").val "";
 
