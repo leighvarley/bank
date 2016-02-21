@@ -5,7 +5,7 @@ $ ->
     makeTransaction: ->
 
       balanceDiv = $(@).siblings "div.balance"
-      startingBalance = parseFloat(balanceDiv.text().replace("$", ""))
+      startingBalance = parseFloat(balanceDiv.text().replace "$", "")
       userInput = parseFloat($(@).siblings("input.userInput").val())
       self = $(@)
 
@@ -19,9 +19,9 @@ $ ->
 
       updateThePage = ->
         balanceDiv.html "<h2>$" + total.toFixed(2) + "</h2>"
-        if (self.hasClass("withdrawal")) && (userInput > startingBalance)
+        if (self.hasClass "withdrawal") && (userInput > startingBalance)
           balanceDiv.append "<p>Insufficient Funds!</p>"
-        $("input.userInput").val("");
+        $("input.userInput").val "";
 
       updateThePage()
 
