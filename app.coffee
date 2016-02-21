@@ -8,6 +8,15 @@ $ ->
       userInput = parseFloat($(@).siblings("input.userInput").val())
       self = $(@)
 
+      # Calculate the total.
+      if $(@).hasClass "deposit"
+        total = startingBalance + (userInput || 0)
+      else
+        if startingBalance >= userInput
+          total = startingBalance - (userInput || 0)
+        else
+          total = startingBalance
+
 # $(document).ready(function(){
 #
 #   var bank = {

@@ -5,11 +5,20 @@
     console.log("DOM is ready");
     return bank = {
       makeTransaction: function() {
-        var balanceDiv, self, startingBalance, userInput;
+        var balanceDiv, self, startingBalance, total, userInput;
         balanceDiv = $(this).siblings("div.balance");
         startingBalance = parseFloat(balanceDiv.text().replace("$", ""));
         userInput = parseFloat($(this).siblings("input.userInput").val());
-        return self = $(this);
+        self = $(this);
+        if ($(this).hasClass("deposit")) {
+          return total = startingBalance + (userInput || 0);
+        } else {
+          if (startingBalance >= userInput) {
+            return total = startingBalance - (userInput || 0);
+          } else {
+            return total = startingBalance;
+          }
+        }
       }
     };
   });
