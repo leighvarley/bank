@@ -2,7 +2,6 @@
 (function() {
   $(function() {
     var bank;
-    console.log("DOM is ready");
     bank = {
       makeTransaction: function() {
         var balanceDiv, self, startingBalance, total, updateThePage, userInput;
