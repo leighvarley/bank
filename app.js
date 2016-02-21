@@ -4,10 +4,11 @@
     var bank;
     bank = {
       makeTransaction: function() {
-        var balanceDiv, self, startingBalance, total, updateThePage, userInput;
+        var balanceDiv, self, startingBalance, total, updateThePage, userInput, userInputField;
         balanceDiv = $(this).siblings("div.balance");
         startingBalance = parseFloat(balanceDiv.text().replace("$", ""));
-        userInput = parseFloat($(this).siblings("input.userInput").val());
+        userInputField = $(this).siblings("input.userInput");
+        userInput = parseFloat(userInputField.val());
         self = $(this);
         if ($(this).hasClass("deposit")) {
           total = startingBalance + (userInput || 0);
@@ -23,7 +24,7 @@
           if ((self.hasClass("withdrawal")) && (userInput > startingBalance)) {
             balanceDiv.append("<p>Insufficient Funds!</p>");
           }
-          return $("input.userInput").val("");
+          return userInputField.val("");
         };
         return updateThePage();
       }
