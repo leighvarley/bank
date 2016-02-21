@@ -10,10 +10,10 @@ $ ->
       self = $(@)
 
       if $(@).hasClass "deposit"
-        total = startingBalance + (userInput || 0)
+        total = startingBalance + (userInput or 0)
       else
         if startingBalance >= userInput
-          total = startingBalance - (userInput || 0)
+          total = startingBalance - (userInput or 0)
         else
           total = startingBalance
 
