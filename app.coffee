@@ -24,6 +24,10 @@ $ ->
           balanceDiv.append "<p>Insufficient Funds!</p>"
         $("input.userInput").val("");
 
+      updateThePage()
+
+  $("[type=button]").on "click", bank.makeTransaction
+
 
 # $(document).ready(function(){
 #

@@ -3,7 +3,7 @@
   $(function() {
     var bank;
     console.log("DOM is ready");
-    return bank = {
+    bank = {
       makeTransaction: function() {
         var balanceDiv, self, startingBalance, total, updateThePage, userInput;
         balanceDiv = $(this).siblings("div.balance");
@@ -19,15 +19,17 @@
             total = startingBalance;
           }
         }
-        return updateThePage = function() {
+        updateThePage = function() {
           balanceDiv.html("<h2>$" + total.toFixed(2) + "</h2>");
           if ((self.hasClass("withdrawal")) && (userInput > startingBalance)) {
             balanceDiv.append("<p>Insufficient Funds!</p>");
           }
           return $("input.userInput").val("");
         };
+        return updateThePage();
       }
     };
+    return $("[type=button]").on("click", bank.makeTransaction);
   });
 
 }).call(this);
