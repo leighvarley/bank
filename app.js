@@ -5,20 +5,27 @@
     console.log("DOM is ready");
     return bank = {
       makeTransaction: function() {
-        var balanceDiv, self, startingBalance, total, userInput;
+        var balanceDiv, self, startingBalance, total, updateThePage, userInput;
         balanceDiv = $(this).siblings("div.balance");
         startingBalance = parseFloat(balanceDiv.text().replace("$", ""));
         userInput = parseFloat($(this).siblings("input.userInput").val());
         self = $(this);
         if ($(this).hasClass("deposit")) {
-          return total = startingBalance + (userInput || 0);
+          total = startingBalance + (userInput || 0);
         } else {
           if (startingBalance >= userInput) {
-            return total = startingBalance - (userInput || 0);
+            total = startingBalance - (userInput || 0);
           } else {
-            return total = startingBalance;
+            total = startingBalance;
           }
         }
+        return updateThePage = function() {
+          balanceDiv.html("<h2>$" + total.toFixed(2) + "</h2>");
+          if ((self.hasClass("withdrawal")) && (userInput > startingBalance)) {
+            balanceDiv.append("<p>Insufficient Funds!</p>");
+          }
+          return $("input.userInput").val("");
+        };
       }
     };
   });

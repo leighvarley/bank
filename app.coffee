@@ -17,6 +17,14 @@ $ ->
         else
           total = startingBalance
 
+      # Display the total, show an error message if necessary, and clear the user input field.
+      updateThePage = ->
+        balanceDiv.html "<h2>$" + total.toFixed(2) + "</h2>"
+        if (self.hasClass("withdrawal")) && (userInput > startingBalance)
+          balanceDiv.append "<p>Insufficient Funds!</p>"
+        $("input.userInput").val("");
+
+
 # $(document).ready(function(){
 #
 #   var bank = {
