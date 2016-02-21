@@ -5,12 +5,12 @@
     bank = {
       makeTransaction: function() {
         var balanceDiv, self, startingBalance, total, updateThePage, userInput, userInputField;
-        balanceDiv = $(this).siblings("div.balance");
-        startingBalance = parseFloat(balanceDiv.text().replace("$", ""));
-        userInputField = $(this).siblings("input.userInput");
-        userInput = parseFloat(userInputField.val());
         self = $(this);
-        if ($(this).hasClass("deposit")) {
+        balanceDiv = self.siblings("div.balance");
+        startingBalance = parseFloat(balanceDiv.text().replace("$", ""));
+        userInputField = self.siblings("input.userInput");
+        userInput = parseFloat(userInputField.val());
+        if (self.hasClass("deposit")) {
           total = startingBalance + (userInput || 0);
         } else {
           if (startingBalance >= userInput) {

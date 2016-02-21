@@ -4,13 +4,14 @@ $ ->
 
     makeTransaction: ->
 
-      balanceDiv = $(@).siblings "div.balance"
-      startingBalance = parseFloat(balanceDiv.text().replace "$", "")
-      userInputField = $(@).siblings "input.userInput"
-      userInput = parseFloat(userInputField.val())
       self = $(@)
+      balanceDiv = self.siblings "div.balance"
+      startingBalance = parseFloat balanceDiv.text().replace "$", ""
+      userInputField = self.siblings "input.userInput"
+      userInput = parseFloat userInputField.val()
 
-      if $(@).hasClass "deposit"
+
+      if self.hasClass "deposit"
         total = startingBalance + (userInput or 0)
       else
         if startingBalance >= userInput
