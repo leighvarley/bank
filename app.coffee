@@ -13,11 +13,9 @@ $ ->
       else
         if startingBalance >= userInput then total = startingBalance - (userInput or 0) else total = startingBalance
 
-      updateThePage = =>
+      updateThePage = do =>
         balanceDiv.html "<h2>$" + total.toFixed(2) + "</h2>"
         if ($(@).hasClass "withdrawal") and (userInput > startingBalance) then balanceDiv.append "<p>Insufficient Funds!</p>"
         userInputField.val ""
-
-      updateThePage()
 
   $("[type=button]").on "click", bank.makeTransaction
