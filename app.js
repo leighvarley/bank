@@ -22,16 +22,14 @@ $(document).ready(function(){
       };
 
       //Display the total, show an error message if necessary, and clear the user input field.
-      var updateThePage = function(){
+      return updateThePage = function(){
         balanceDiv.html("<h2>$" + total.toFixed(2) + "</h2>");
         if (($(this).hasClass("withdrawal")) && (userInput > startingBalance)) {
           balanceDiv.append("<p>Insufficient Funds!</p>");
         }
         userInputField.val("");
-      }.bind(this);
+      }.bind(this)();
 
-      updateThePage();
-      
     }
 
   }
