@@ -9,8 +9,6 @@ $(document).ready(function(){
       var startingBalance = parseFloat(balanceDiv.text().replace("$", ""));
       var userInputField = $(this).siblings("input.userInput");
       var userInput = parseFloat(userInputField.val());
-      //Use self to access makeTransaction's "this" keyword from updateThePage.
-      var self = $(this);
 
       //Calculate the total.
       if ($(this).hasClass("deposit")) {
@@ -26,14 +24,14 @@ $(document).ready(function(){
       //Display the total, show an error message if necessary, and clear the user input field.
       var updateThePage = function(){
         balanceDiv.html("<h2>$" + total.toFixed(2) + "</h2>");
-        if ((self.hasClass("withdrawal")) && (userInput > startingBalance)) {
+        if (($(this).hasClass("withdrawal")) && (userInput > startingBalance)) {
           balanceDiv.append("<p>Insufficient Funds!</p>");
         }
         userInputField.val("");
-      };
+      }.bind(this);
 
       updateThePage();
-
+      
     }
 
   }
