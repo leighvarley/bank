@@ -4,19 +4,18 @@ $ ->
 
     makeTransaction: ->
 
-      self = $(@)
-      balanceDiv = self.siblings "div.balance"
+      balanceDiv = $(@).siblings "div.balance"
       startingBalance = parseFloat balanceDiv.text().replace "$", ""
-      userInputField = self.siblings "input.userInput"
+      userInputField = $(@).siblings "input.userInput"
       userInput = parseFloat userInputField.val()
 
-      if self.hasClass "deposit" then total = startingBalance + (userInput or 0)
+      if $(@).hasClass "deposit" then total = startingBalance + (userInput or 0)
       else
         if startingBalance >= userInput then total = startingBalance - (userInput or 0) else total = startingBalance
 
-      updateThePage = ->
+      updateThePage = =>
         balanceDiv.html "<h2>$" + total.toFixed(2) + "</h2>"
-        if (self.hasClass "withdrawal") and (userInput > startingBalance) then balanceDiv.append "<p>Insufficient Funds!</p>"
+        if ($(@).hasClass "withdrawal") and (userInput > startingBalance) then balanceDiv.append "<p>Insufficient Funds!</p>"
         userInputField.val ""
 
       updateThePage()
