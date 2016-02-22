@@ -10,19 +10,13 @@ $ ->
       userInputField = self.siblings "input.userInput"
       userInput = parseFloat userInputField.val()
 
-
-      if self.hasClass "deposit"
-        total = startingBalance + (userInput or 0)
+      if self.hasClass "deposit" then total = startingBalance + (userInput or 0)
       else
-        if startingBalance >= userInput
-          total = startingBalance - (userInput or 0)
-        else
-          total = startingBalance
+        if startingBalance >= userInput then total = startingBalance - (userInput or 0) else total = startingBalance
 
       updateThePage = ->
         balanceDiv.html "<h2>$" + total.toFixed(2) + "</h2>"
-        if (self.hasClass "withdrawal") and (userInput > startingBalance)
-          balanceDiv.append "<p>Insufficient Funds!</p>"
+        if (self.hasClass "withdrawal") and (userInput > startingBalance) then balanceDiv.append "<p>Insufficient Funds!</p>"
         userInputField.val ""
 
       updateThePage()
