@@ -9,16 +9,20 @@
         startingBalance = parseFloat(balanceDiv.text().replace("$", ""));
         userInputField = $(this).siblings("input.userInput");
         userInput = parseFloat(userInputField.val());
-        if ($(this).hasClass("deposit")) {
-          total = startingBalance + (userInput || 0);
-        } else {
-          if (startingBalance >= userInput) {
-            total = startingBalance - (userInput || 0);
+        if (userInput > 0) {
+          if ($(this).hasClass("deposit")) {
+            total = startingBalance + (userInput || 0);
           } else {
-            total = startingBalance;
+            if (startingBalance >= userInput) {
+              total = startingBalance - (userInput || 0);
+            } else {
+              total = startingBalance;
+            }
           }
+        } else {
+          total = startingBalance;
         }
-        updateThePage = (function(_this) {
+        return updateThePage = (function(_this) {
           return function() {
             balanceDiv.html("<h2>$" + total.toFixed(2) + "</h2>");
             if (($(_this).hasClass("withdrawal")) && (userInput > startingBalance)) {
@@ -26,8 +30,7 @@
             }
             return userInputField.val("");
           };
-        })(this);
-        return updateThePage();
+        })(this)();
       }
     };
     return $("[type=button]").on("click", bank.makeTransaction);
