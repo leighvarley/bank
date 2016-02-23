@@ -11,14 +11,18 @@ $(document).ready(function(){
       var userInput = parseFloat(userInputField.val());
 
       //Calculate the total.
-      if ($(this).hasClass("deposit")) {
-        var total = startingBalance + (userInput || 0);
-      } else {
-        if (startingBalance >= userInput) {
-          var total = startingBalance - (userInput || 0);
+      if(userInput > 0){
+        if ($(this).hasClass("deposit")) {
+          var total = startingBalance + (userInput || 0);
         } else {
-            total = startingBalance;
-          }
+          if (startingBalance >= userInput) {
+            var total = startingBalance - (userInput || 0);
+          } else {
+              total = startingBalance;
+            }
+        }
+      } else {
+        total = startingBalance;
       };
 
       //Display the total, show an error message if necessary, and clear the user input field.
